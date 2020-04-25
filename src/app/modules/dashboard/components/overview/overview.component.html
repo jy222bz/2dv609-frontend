@@ -1,0 +1,4 @@
+<div fxLayout="row" fxLayout.lt-md="column wrap" fxLayoutGap="16px" style="padding-bottom: 16px">
+  <app-card fxFlex.lt-md="100" fxFlex="50" *ngFor="let item of items" [loading]="item.loading" [value]="item.value" [title]="item.title"
+    [icon]="item.icon" [url]="item.url" [footer]="item.footer"></app-card>
+</div>

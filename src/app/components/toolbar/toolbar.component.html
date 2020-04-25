@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button (click)="navbarToggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Exams Management System</span>
+    <span class="mat-toolbar-spacer"></span>
+    <button [matMenuTriggerFor]="menu" mat-icon-button>
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a href="/auth/logout" mat-menu-item>
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Log out</span>
+      </a>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

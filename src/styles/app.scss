@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.clipboard {
+    position: absolute;
+    left: -9999px
+}
+
+.app-container {
+    padding: 16px;
+    position: relative;
+}
+
+.app-toolbar-header {
+    background-color: transparent;
+}
+
+.dot {
+    height: 18px;
+    width: 18px;
+    background-color: lime;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+// Toolbar
+.app-toolbar {
+    height: 64px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    div {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+
+        .title {
+            font-size: large;
+            font-weight: bold;
+        }
+
+        .margin-left {
+            margin-left: 16px;
+        }
+
+        .margin-right {
+            margin-right: 16px;
+        }
+    }
+}
+
+
+// Tile
+.app-tile {
+    max-height: 480px;
+
+    .app-toolbar {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}
+
+
+// List
+.app-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .row {
+        padding: 16px;
+    }
+
+    .key-value {
+        display: flex;
+        flex-direction: row;
+
+        .percent-25 {
+            flex: 0 1 25%;
+        }
+
+        .percent-50 {
+            flex: 0 1 50%;
+        }
+    }
+}
+
+
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

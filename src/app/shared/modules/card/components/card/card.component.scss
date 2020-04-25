@@ -1,0 +1,20 @@
+.card {
+  width: 100%;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+
+  .body {
+      padding: 16px;
+
+      .title {
+          font-size: small;
+      }
+
+      .content {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+      }
+  }
+}

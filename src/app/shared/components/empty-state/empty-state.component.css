@@ -1,0 +1,40 @@
+:host {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 420px;
+  padding: 36px;
+  margin: 0 auto;
+  position: relative;
+  transition: opacity .15s cubic-bezier(0, 0, .2, 1), transform .3s cubic-bezier(0, 0, .2, 1);
+  will-change: transform, opacity;
+}
+
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: opacity .4s cubic-bezier(.4, 0, .2, 1);
+  will-change: opacity;
+}
+
+.empty-state-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.empty-state-description {
+  margin: 1em 0;
+  font-size: 16px;
+  line-height: 24px;
+}
