@@ -47,4 +47,14 @@ export class AuthService {
     };
     return this.http.post('login', input, httpOptions);
   }
+
+  /**
+   * Logout current user
+   */
+  logout(): Observable<any> {
+    const httpOptions = {
+      withCredentials: true,
+    };
+    return this.http.put('logout', {}, httpOptions)
+  }
 }
