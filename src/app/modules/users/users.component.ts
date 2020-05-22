@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from 'src/app/shared/services/users/users.service';
 
 
 @Component({
@@ -8,9 +9,21 @@ import { Component } from '@angular/core';
 export class UsersComponent {
 
   constructor(
-
+    private usersService: UsersService,
   ) {
     console.log('users')
+    this.test()
+  }
+
+  test() {
+    this.usersService.get({
+      pageIndex: 0,
+      pageSize: 50
+    }).subscribe(
+      (next) => {
+        console.log(next);
+      }
+    )
   }
 
 }

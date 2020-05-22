@@ -21,7 +21,7 @@
         <div fxLayout="row">
           <mat-form-field fxFlex="1 1 100%">
             <label>
-              <input autocomplete="off" formControlName="password" matInput placeholder="Password">
+              <input autocomplete="off" formControlName="password" type="password" matInput placeholder="Password">
             </label>
             <mat-error *ngIf="form.controls.password.hasError('required')">required</mat-error>
           </mat-form-field>

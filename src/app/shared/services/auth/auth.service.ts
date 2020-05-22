@@ -5,36 +5,10 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  private user = null;
-
   constructor(
     private http: HttpClient
   ) {
-    this.fetchUser().subscribe(
-      (next) => {
-        this.user = next;
-      }
-    );
-  }
 
-  fetchUser() {
-    return this.http.get('account');
-  }
-
-  get currentUser() {
-    return this.user;
-  }
-
-  set currentUser(user: any) {
-    this.user = user;
-  }
-
-  isAdmin(): boolean {
-    return this.user && this.user.role === 1;
-  }
-
-  isTeacher(): boolean {
-    return this.user && this.user.role === 2;
   }
 
   /**
