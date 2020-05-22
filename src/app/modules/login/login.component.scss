@@ -1,0 +1,36 @@
+@import '../../../styles/theme.scss';
+
+.login-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.login-info {
+  background-color: mat-color($light-primary);
+  display: flex;
+  align-items: center;
+
+  color: white;
+  font-size: 56px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  display: inline-block;
+  width: 0;
+  line-height: 1.83; 
+  margin: 36px;
+}
+
+.login-form {
+  padding: 36px;
+  display: flex;
+  align-items: center;
+
+  div {
+    width: 100%;
+  }
+}

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing.module';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -23,30 +23,25 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
-    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
     MatProgressBarModule,
-    MatListModule,
-    MatSidenavModule,
-    MatButtonModule,
     NgxsModule.forRoot([LoaderState, SidebarState], { developmentMode: !environment.production }),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [
+    AuthGuard,
     CookiesService,
     LocalStorageService,
     AuthService,

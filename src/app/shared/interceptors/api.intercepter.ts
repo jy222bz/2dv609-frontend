@@ -9,6 +9,6 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req.clone({ url: `${environment.baseApi}/${req.url}` }));
+    return next.handle(req.clone({ url: `${environment.baseUrl}${req.url}` }));
   }
 }
