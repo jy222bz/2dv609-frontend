@@ -9,6 +9,10 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(req.clone({ url: `${environment.baseApi}/${req.url}` }));
+    const excludedRoutes = ['login', 'logout', 'account'];
+    if (excludedRoutes.includes(req.url)) {
+      return next.handle(req);
+    }
+    return next.handle(req.clone({ url: `${environment.baseAPI}${req.url}` }));
   }
 }

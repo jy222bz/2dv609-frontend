@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {AuthService} from '../../shared/services/auth.service';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,8 +8,9 @@ import {AuthService} from '../../shared/services/auth.service';
 export class DashboardComponent {
 
   constructor(
-    public authService: AuthService,
+
   ) {
+    console.log('dashboard')
   }
 
 }

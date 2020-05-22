@@ -1,20 +1,2 @@
 <app-loader *ngIf="loaderStatus$ | async"></app-loader>
-<div class="app">
-  <app-toolbar></app-toolbar>
-  <mat-sidenav-container class="app-sidebar" >
-    <mat-sidenav #snav [fixedInViewport]="smallLayout" [mode]="smallLayout ? 'over' : 'side'" fixedTopGap="56"
-      class="app-sidebar-nav" [opened]="sidebarStatus$ | async"
-      (openedChange)="navbarChanged($event)"
-      >
-      <mat-nav-list>
-        <mat-list-item (click)="navigate('/')">
-          <mat-icon mat-list-icon>dashboard</mat-icon>
-          <h4 mat-line>Dashboard</h4>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+<router-outlet></router-outlet>

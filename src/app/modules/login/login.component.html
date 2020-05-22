@@ -1,0 +1,35 @@
+<div fxLayout="row" fxLayout.lt-md="column" class="login-container">
+  <div fxFlex="1 1 100%" class="login-info">
+    <span class="tagline">
+      Exam Management System
+    </span>
+  </div>
+  <div fxFlex="1 1 100%" class="login-form">
+    <div>
+      <h2>Login</h2>
+      <app-alert *ngIf="error != null" [value]="error"></app-alert>
+      <form [formGroup]="form">
+        <div fxLayout="row">
+          <mat-form-field fxFlex="1 1 100%">
+            <label>
+              <input autocomplete="off" formControlName="email" matInput placeholder="Email">
+            </label>
+            <mat-error *ngIf="form.controls.email.hasError('required')">required</mat-error>
+            <mat-error *ngIf="form.controls.email.hasError('email')">Please write a valid email address</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="1 1 100%">
+            <label>
+              <input autocomplete="off" formControlName="password" type="password" matInput placeholder="Password">
+            </label>
+            <mat-error *ngIf="form.controls.password.hasError('required')">required</mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+      <button mat-raised-button color="primary" (click)="login()" [disabled]="working" style="width: 100%;">
+        <span>Login</span>
+      </button>
+    </div>
+  </div>
+</div>

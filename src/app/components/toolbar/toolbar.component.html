@@ -9,10 +9,10 @@
       <mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <a href="/auth/logout" mat-menu-item>
+      <button (click)="logout()" mat-menu-item>
         <mat-icon>power_settings_new</mat-icon>
         <span>Log out</span>
-      </a>
+      </button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

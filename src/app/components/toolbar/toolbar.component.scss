@@ -1,5 +1,7 @@
+@import '../../../styles/theme.scss';
+
 :host {
   width: 100%;
   z-index: 2;
-  background-color: #1e1e2f;
+  background-color: mat-color($dark-primary);
 }
