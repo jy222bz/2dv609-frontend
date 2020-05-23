@@ -4,6 +4,7 @@ import { ItemsComponent } from 'src/app/shared/components/items/items.component'
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddComponent } from './components/add/add.component';
+import { UserDeleteComponent } from './components/user/delete/delete.component';
 
 @Component({
   selector: 'app-users',
@@ -37,7 +38,12 @@ export class UsersComponent extends ItemsComponent<any> implements OnInit {
   }
 
   openUserDeleteDialog(elem: any): void {
-
+    const ref = this.dialog.open(UserDeleteComponent, { autoFocus: true, width: '480px', data: elem });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.delete(result);
+      }
+    });
   }
 
   // ---------------------

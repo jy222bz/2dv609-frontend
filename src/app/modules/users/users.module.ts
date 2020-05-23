@@ -3,7 +3,6 @@ import { UsersRoutingModule } from './users.routing.module';
 import { UsersComponent } from './users.component';
 import { CommonModule } from '@angular/common';
 
-import { CardModule } from 'src/app/shared/modules/card/card.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UsersService } from 'src/app/shared/services/users/users.service';
 import { MatTableModule } from '@angular/material/table';
@@ -21,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 import { MatSelectModule } from '@angular/material/select';
+import { UserDeleteComponent } from './components/user/delete/delete.component';
 
 @NgModule({
   imports: [
@@ -46,6 +46,7 @@ import { MatSelectModule } from '@angular/material/select';
   declarations: [
     UsersComponent,
     AddComponent,
+    UserDeleteComponent,
   ],
   providers: [
     UsersService,
