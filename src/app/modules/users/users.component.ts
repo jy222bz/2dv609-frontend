@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddComponent } from './components/add/add.component';
 import { UserDeleteComponent } from './components/user/delete/delete.component';
 import { UserEditComponent } from './components/user/edit/edit.component';
+import { UserPasswordComponent } from './components/user/password/password.component';
 
 @Component({
   selector: 'app-users',
@@ -49,6 +50,15 @@ export class UsersComponent extends ItemsComponent<any> implements OnInit {
 
   openUserEditComponent(elem: any): void {
     const ref = this.dialog.open(UserEditComponent, { autoFocus: true, width: '480px', data: elem });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.update(result);
+      }
+    });
+  }
+
+  openUserPasswordComponent(elem: any): void {
+    const ref = this.dialog.open(UserPasswordComponent, { autoFocus: true, width: '480px', data: elem });
     ref.afterClosed().subscribe(result => {
       if (result) {
         this.update(result);

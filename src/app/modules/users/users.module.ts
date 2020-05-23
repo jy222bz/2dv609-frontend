@@ -22,6 +22,8 @@ import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 import { MatSelectModule } from '@angular/material/select';
 import { UserDeleteComponent } from './components/user/delete/delete.component';
 import { UserEditComponent } from './components/user/edit/edit.component';
+import { UserPasswordComponent } from './components/user/password/password.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   imports: [
@@ -43,12 +45,14 @@ import { UserEditComponent } from './components/user/edit/edit.component';
     MatButtonModule,
     MatSelectModule,
     MatTooltipModule,
+    MatDividerModule,
   ],
   declarations: [
     UsersComponent,
     AddComponent,
     UserDeleteComponent,
     UserEditComponent,
+    UserPasswordComponent,
   ],
   providers: [
     UsersService,
