@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import LoginInput from './login.interface';
 import { Observable } from 'rxjs';
+
+interface LoginInput {
+  email: string,
+  password: string
+}
 
 @Injectable()
 export class AuthService {

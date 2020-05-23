@@ -9,7 +9,7 @@ export class ApiInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const excludedRoutes = ['login', 'logout', 'account'];
+    const excludedRoutes = ['login', 'logout'];
     if (excludedRoutes.includes(req.url)) {
       return next.handle(req);
     }
