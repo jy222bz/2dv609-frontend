@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Add</h2>
+<app-alert *ngIf="error != null" [value]="error"></app-alert>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="email" matInput placeholder="Email">
+        </label>
+        <mat-error *ngIf="form.controls.email.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="password" matInput placeholder="Password">
+        </label>
+        <mat-error *ngIf="form.controls.password.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="8px">
+      <mat-form-field fxFlex="1 1 100%">
+        <mat-select formControlName="roleId" placeholder="Role">
+          <mat-option *ngFor="let item of roles$ | async" [value]="item.id">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="8px">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="firstName" matInput placeholder="First Name">
+        </label>
+        <mat-error *ngIf="form.controls.firstName.hasError('required')">required</mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="lastName" matInput placeholder="Last Name">
+        </label>
+        <mat-error *ngIf="form.controls.lastName.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="note" matInput placeholder="Note">
+        </label>
+        <mat-error *ngIf="form.controls.note.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+  <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+  <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
+    <span>Add</span>
+  </button>
+</mat-dialog-actions>

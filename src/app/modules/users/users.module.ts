@@ -16,26 +16,36 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
+import { AddComponent } from './components/add/add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     UsersRoutingModule,
-    CardModule,
     FlexLayoutModule,
+    AlertModule,
     MatTableModule,
     MatPaginatorModule,
     TableModule,
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
+    MatInputModule,
     MatCheckboxModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatSelectModule,
     MatTooltipModule,
   ],
   declarations: [
     UsersComponent,
+    AddComponent,
   ],
   providers: [
     UsersService,

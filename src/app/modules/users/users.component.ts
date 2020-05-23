@@ -3,14 +3,15 @@ import { UsersService } from 'src/app/shared/services/users/users.service';
 import { ItemsComponent } from 'src/app/shared/components/items/items.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AddComponent } from './components/add/add.component';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
 })
 export class UsersComponent extends ItemsComponent<any> implements OnInit {
-  columns = ['select', 'name', 'createdAt', 'edit'];
-  displayedColumns = ['select', 'name', 'createdAt', 'edit'];
+  columns = ['name', 'createdAt', 'edit'];
+  displayedColumns = ['name', 'createdAt', 'edit'];
 
   constructor(
     private usersService: UsersService,
@@ -25,7 +26,14 @@ export class UsersComponent extends ItemsComponent<any> implements OnInit {
   }
 
   openAddComponent(): void {
-
+    const ref = this.dialog.open(AddComponent, {
+      autoFocus: true, width: '480px'
+    });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.add(result);
+      }
+    });
   }
 
   openUserDeleteDialog(elem: any): void {

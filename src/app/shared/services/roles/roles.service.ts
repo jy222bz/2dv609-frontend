@@ -3,8 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
-export class UsersService {
-  path = 'users';
+export class RolesService {
+  path = 'roles';
 
   constructor(private http: HttpClient) {
 
@@ -13,16 +13,6 @@ export class UsersService {
   get(args?: any): Observable<any> {
     return this.http.get<any>(this.path, {
       params: new HttpParams({ fromObject: args })
-    });
-  }
-
-  create(body: any): Observable<any> {
-    return this.http.post(this.path, body);
-  }
-
-  delete(body: any): Observable<any> {
-    return this.http.request('delete', this.path, {
-      body
     });
   }
 }
