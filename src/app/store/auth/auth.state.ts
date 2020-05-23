@@ -41,11 +41,11 @@ export class AuthState {
   @Action(Login)
   login({ patchState }: StateContext<AuthStateModel>, { payload: { email, password } }: Login) {
     return this.authService.login({
-      email: email,
-      password: password
+      email,
+      password
     }).pipe(
       tap((result: any) => {
-        patchState({ 
+        patchState({
           email: result.email,
           role: result.role
          });

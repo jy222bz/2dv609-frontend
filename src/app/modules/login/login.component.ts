@@ -38,7 +38,7 @@ export class LoginComponent {
     this.store.dispatch(new Login(this.form.value)).subscribe(
       (_next) => {
         this.router.navigate(['/dashboard']);
-      }, 
+      },
       (error) => {
         this.error = error;
       }
