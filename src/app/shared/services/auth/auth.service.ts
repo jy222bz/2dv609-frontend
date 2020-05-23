@@ -17,7 +17,6 @@ export class AuthService {
 
   /**
    * Login user
-   * @param input
    */
   login(input: LoginInput): Observable<any> {
     const httpOptions = {
