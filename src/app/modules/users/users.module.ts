@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 import { MatSelectModule } from '@angular/material/select';
 import { UserDeleteComponent } from './components/user/delete/delete.component';
+import { UserEditComponent } from './components/user/edit/edit.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { UserDeleteComponent } from './components/user/delete/delete.component';
     UsersComponent,
     AddComponent,
     UserDeleteComponent,
+    UserEditComponent,
   ],
   providers: [
     UsersService,

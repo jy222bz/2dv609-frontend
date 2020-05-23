@@ -42,6 +42,12 @@
         </mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="role">
+        <mat-header-cell *matHeaderCellDef> Role</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.roleName}}
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="createdAt">
         <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.createdAt| date:'longDate'}} </mat-cell>
@@ -59,8 +65,12 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #userMenu="matMenu">
-            <button (click)="openUserDeleteDialog(element)" mat-menu-item>
-              <mat-icon style="color: darkred">delete</mat-icon>
+            <button (click)="openUserEditComponent(element)" mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button (click)="openUserDeleteComponent(element)" mat-menu-item>
+              <mat-icon>delete</mat-icon>
               <span>Delete</span>
             </button>
           </mat-menu>

@@ -5,14 +5,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddComponent } from './components/add/add.component';
 import { UserDeleteComponent } from './components/user/delete/delete.component';
+import { UserEditComponent } from './components/user/edit/edit.component';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
 })
 export class UsersComponent extends ItemsComponent<any> implements OnInit {
-  columns = ['name', 'createdAt', 'edit'];
-  displayedColumns = ['name', 'createdAt', 'edit'];
+  columns = ['name', 'role', 'createdAt', 'edit'];
+  displayedColumns = ['name', 'role', 'createdAt', 'edit'];
 
   constructor(
     private usersService: UsersService,
@@ -37,11 +38,20 @@ export class UsersComponent extends ItemsComponent<any> implements OnInit {
     });
   }
 
-  openUserDeleteDialog(elem: any): void {
+  openUserDeleteComponent(elem: any): void {
     const ref = this.dialog.open(UserDeleteComponent, { autoFocus: true, width: '480px', data: elem });
     ref.afterClosed().subscribe(result => {
       if (result) {
         this.delete(result);
+      }
+    });
+  }
+
+  openUserEditComponent(elem: any): void {
+    const ref = this.dialog.open(UserEditComponent, { autoFocus: true, width: '480px', data: elem });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.update(result);
       }
     });
   }
