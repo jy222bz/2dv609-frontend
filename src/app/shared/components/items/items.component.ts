@@ -1,11 +1,13 @@
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import { Model } from '../../models/model';
+
+export interface Model {
+  id: number;
+}
 
 export abstract class ItemsComponent<T extends Model> {
   dataSource: MatTableDataSource<T> = null;
   selection = new SelectionModel<T>(true, []);
-  working = false;
   search = false;
   expandedElement = null;
 
@@ -98,8 +100,8 @@ export abstract class ItemsComponent<T extends Model> {
   }
 
   set(data) {
-    this.total = data.total;
-    this.dataSource = new MatTableDataSource(data.items);
+    this.total = data.totalElements;
+    this.dataSource = new MatTableDataSource(data.content);
   }
 
   add(result) {

@@ -6,13 +6,14 @@
   right: 0;
   left: 0;
   z-index: 2;
-  background-color: #bc5100;
+  background-color: #e4e4e4;
   display: flex;
   box-sizing: border-box;
   padding: 0 16px;
   flex-direction: row;
   align-items: center;
   white-space: nowrap;
+  box-shadow: 1px 1px 3px rgba(17,17,17,.25);
 }
 
 @media (max-width: 599px) {

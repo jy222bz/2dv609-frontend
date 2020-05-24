@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Delete</h2>
+<app-alert *ngIf="error != null" [value]="error"></app-alert>
+<mat-dialog-content>
+  <p>Are you sure to delete selected item</p>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+  <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+  <button (click)="save()" [disabled]="working" class="mat-raised-button mat-warn">
+    <span>Delete</span>
+  </button>
+</mat-dialog-actions>

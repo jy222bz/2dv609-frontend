@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Edit</h2>
+<app-alert *ngIf="error != null" [value]="error"></app-alert>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <textarea autocomplete="off" formControlName="text" matInput placeholder="Question"></textarea>
+        </label>
+        <mat-error *ngIf="form.controls.text.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutGap="8px">
+      <mat-form-field fxFlex="1 1 100%">
+        <mat-select formControlName="type" placeholder="Type">
+          <mat-option *ngFor="let item of types$ | async" [value]="item.id">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="note" matInput placeholder="Note">
+        </label>
+        <mat-error *ngIf="form.controls.note.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+  <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+  <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
+    <span>Save</span>
+  </button>
+</mat-dialog-actions>

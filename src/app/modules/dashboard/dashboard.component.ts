@@ -10,7 +10,7 @@ export class DashboardComponent {
   constructor(
 
   ) {
-    console.log('dashboard')
+    
   }
 
 }

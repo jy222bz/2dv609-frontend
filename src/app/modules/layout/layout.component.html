@@ -1,17 +1,19 @@
 <div class="layout">
   <app-toolbar></app-toolbar>
-  <mat-sidenav-container class="app-sidebar" >
+  <mat-sidenav-container class="app-sidebar">
     <mat-sidenav #snav [fixedInViewport]="smallLayout" [mode]="smallLayout ? 'over' : 'side'" fixedTopGap="56"
-      class="app-sidebar-nav" [opened]="sidebarStatus$ | async"
-      (openedChange)="navbarChanged($event)"
-      >
+      class="app-sidebar-nav" [opened]="sidebarStatus$ | async" (openedChange)="navbarChanged($event)">
       <mat-nav-list>
         <mat-list-item (click)="navigate('/dashboard')">
           <mat-icon mat-list-icon>dashboard</mat-icon>
           <h4 mat-line>Dashboard</h4>
         </mat-list-item>
-        <mat-list-item (click)="navigate('/users')">
-          <mat-icon mat-list-icon>dashboard</mat-icon>
+        <mat-list-item (click)="navigate('/exams')" *ngIf="(authRole$ | async) == 'Admin' || (authRole$ | async) == 'Teacher'">
+          <mat-icon mat-list-icon>list_alt</mat-icon>
+          <h4 mat-line>Exams</h4>
+        </mat-list-item>
+        <mat-list-item (click)="navigate('/users')" *ngIf="(authRole$ | async) == 'Admin' || (authRole$ | async) == 'Teacher'">
+          <mat-icon mat-list-icon>group</mat-icon>
           <h4 mat-line>Users</h4>
         </mat-list-item>
       </mat-nav-list>

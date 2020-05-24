@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.store.dispatch(new Logout).subscribe(
+    this.store.dispatch(new Logout()).subscribe(
       (_next) => {
         this.router.navigate(['/auth/login']);
       }

@@ -11,7 +11,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { ToolbarComponent } from 'src/app/modules/layout/components/toolbar/toolbar.component';
+import { ExamResolve } from './resolver/exam.resolve';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
     ToolbarComponent,
   ],
   providers: [
-
+    ExamResolve,
   ]
 })
 export class LayoutModule {

@@ -25,8 +25,4 @@ export class UsersService {
       body
     });
   }
-
-  total(): Observable<any> {
-    return this.http.get<any>(`${this.path}/total`, {});
-  }
 }

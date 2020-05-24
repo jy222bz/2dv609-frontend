@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { ExamResolve } from './resolver/exam.resolve';
 
 const routes: Routes = [
   {
@@ -14,6 +15,24 @@ const routes: Routes = [
       {
         path: 'users',
         loadChildren: () => import('../users/users.module').then(m => m.UsersModule)
+      },
+      {
+        path: 'exams',
+        loadChildren: () => import('../exams/exams.module').then(m => m.ExamsModule)
+      },
+      {
+        path: 'exams/:id',
+        loadChildren: () => import('../exam/exam.module').then(m => m.ExamModule),
+        resolve: {
+          exam: ExamResolve
+        }
+      },
+      {
+        path: 'exams/:id/questions',
+        loadChildren: () => import('../questions/questions.module').then(m => m.QuestionsModule),
+        resolve: {
+          exam: ExamResolve
+        }
       },
     ]
   }
