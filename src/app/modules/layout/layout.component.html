@@ -8,11 +8,11 @@
           <mat-icon mat-list-icon>dashboard</mat-icon>
           <h4 mat-line>Dashboard</h4>
         </mat-list-item>
-        <mat-list-item (click)="navigate('/exams')">
+        <mat-list-item (click)="navigate('/exams')" *ngIf="(authRole$ | async) == 'Admin' || (authRole$ | async) == 'Teacher'">
           <mat-icon mat-list-icon>list_alt</mat-icon>
           <h4 mat-line>Exams</h4>
         </mat-list-item>
-        <mat-list-item (click)="navigate('/users')">
+        <mat-list-item (click)="navigate('/users')" *ngIf="(authRole$ | async) == 'Admin' || (authRole$ | async) == 'Teacher'">
           <mat-icon mat-list-icon>group</mat-icon>
           <h4 mat-line>Users</h4>
         </mat-list-item>
