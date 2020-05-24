@@ -34,7 +34,6 @@ export class UserPasswordComponent extends DialogComponent implements OnInit {
           this.dialog.close(data);
         },
         (error) => {
-          console.log(error.error.description)
           this.error = error.error.description;
           this.working = false;
         }

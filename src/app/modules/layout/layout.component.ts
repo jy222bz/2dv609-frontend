@@ -22,7 +22,7 @@ export class LayoutComponent implements OnInit {
     private store: Store,
     private breakpointObserver: BreakpointObserver,
   ) {
-    console.log('layout')
+    
   }
 
   ngOnInit(): void {

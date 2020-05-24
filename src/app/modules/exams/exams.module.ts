@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { ExamsRoutingModule } from './exams.routing.module';
 import { ExamsComponent } from './exams.component';
 import { CommonModule } from '@angular/common';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -24,6 +23,7 @@ import { ExamsService } from 'src/app/shared/services/exams/exams.service';
 import { AddComponent } from './components/add/add.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ExamDeleteComponent } from './components/exam/delete/delete.component';
+import { ExamEditComponent } from './components/exam/edit/edit.component';
 
 @NgModule({
   imports: [
@@ -54,6 +54,7 @@ import { ExamDeleteComponent } from './components/exam/delete/delete.component';
     ExamsComponent,
     AddComponent,
     ExamDeleteComponent,
+    ExamEditComponent,
   ],
   providers: [
     ExamsService,

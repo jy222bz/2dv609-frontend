@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExamsService } from 'src/app/shared/services/exams/exams.service';
 import { AddComponent } from './components/add/add.component';
 import { ExamDeleteComponent } from './components/exam/delete/delete.component';
+import { ExamEditComponent } from './components/exam/edit/edit.component';
 
 @Component({
   selector: 'app-exams',
@@ -47,7 +48,12 @@ export class ExamsComponent extends ItemsComponent<any> implements OnInit {
   }
 
   openExamEditComponent(elem: any): void {
-
+    const ref = this.dialog.open(ExamEditComponent, { autoFocus: true, width: '480px', data: elem });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.update(result);
+      }
+    });
   }
 
   // ---------------------
