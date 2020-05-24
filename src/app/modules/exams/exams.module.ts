@@ -23,6 +23,7 @@ import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-mat
 import { ExamsService } from 'src/app/shared/services/exams/exams.service';
 import { AddComponent } from './components/add/add.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ExamDeleteComponent } from './components/exam/delete/delete.component';
 
 @NgModule({
   imports: [
@@ -52,6 +53,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
   declarations: [
     ExamsComponent,
     AddComponent,
+    ExamDeleteComponent,
   ],
   providers: [
     ExamsService,

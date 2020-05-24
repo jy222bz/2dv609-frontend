@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExamsService } from 'src/app/shared/services/exams/exams.service';
 import { AddComponent } from './components/add/add.component';
+import { ExamDeleteComponent } from './components/exam/delete/delete.component';
 
 @Component({
   selector: 'app-exams',
@@ -37,7 +38,12 @@ export class ExamsComponent extends ItemsComponent<any> implements OnInit {
   }
 
   openExamDeleteComponent(elem: any): void {
-
+    const ref = this.dialog.open(ExamDeleteComponent, { autoFocus: true, width: '480px', data: elem });
+    ref.afterClosed().subscribe(result => {
+      if (result) {
+        this.delete(result);
+      }
+    });
   }
 
   openExamEditComponent(elem: any): void {
