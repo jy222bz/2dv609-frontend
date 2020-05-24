@@ -51,9 +51,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getQuestions(): void {
-    this.examQuestionsService.total(this.examId, {
-      disabled: 0
-    }).subscribe(
+    this.examQuestionsService.total(this.examId).subscribe(
       (data) => {
         this.updateQuestions(data);
       },
@@ -69,9 +67,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getStudents() {
-    this.examStudentsService.total(this.examId, {
-      disabled: 0
-    }).subscribe(
+    this.examStudentsService.total(this.examId).subscribe(
       (data) => {
         this.updateStudents(data);
       },
