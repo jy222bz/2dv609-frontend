@@ -1,0 +1,88 @@
+<div class="app-container">
+  <div class="mat-table-container">
+    <div class="app-toolbar">
+      <div>
+        <span class="title">{{exam.title}}</span>
+        <span class="mat-toolbar-spacer"></span>
+        <button (click)="search = true" mat-icon-button matTooltip="Search">
+          <mat-icon>search</mat-icon>
+        </button>
+        <button mat-icon-button (click)="openAddComponent()" matTooltip="Add">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    <app-search (changed)="onSearch($event)" (closed)="onSearchClose()" [visible]="search"></app-search>
+    <app-header [visible]="selection.hasValue()">
+      <span>{{ selection.selected.length }} selected</span>
+      <span class="mat-toolbar-spacer"></span>
+    </app-header>
+    <mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-table-content">
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef class="mat-cell-small">
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-cell-small">
+          <mat-checkbox (change)="$event ? selection.toggle(row) : null" (click)="$event.stopPropagation()"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> #</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="text">
+        <mat-header-cell *matHeaderCellDef> Question</mat-header-cell>
+        <mat-cell *matCellDef="let element"><strong>{{element.text}}</strong>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.typeName}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="createdAt">
+        <mat-header-cell *matHeaderCellDef> Created</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.createdAt| date:'longDate'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="updatedAt">
+        <mat-header-cell *matHeaderCellDef> Updated</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.updatedAt | date:'longDate'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-column-end">
+          <button [matMenuTriggerFor]="questionMenu" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #questionMenu="matMenu">
+            <button (click)="openQuestionEditComponent(element)" mat-menu-item>
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button (click)="openQuestionDeleteComponent(element)" mat-menu-item>
+              <mat-icon>delete</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator (page)="onPageChange($event)" [length]="total" [pageSize]="pageSize" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

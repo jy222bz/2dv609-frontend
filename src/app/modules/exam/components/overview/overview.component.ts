@@ -27,7 +27,7 @@ export class OverviewComponent implements OnInit {
       title: 'Questions',
       name: 'questions',
       icon: 'link',
-      url: '/exam/' + this.examId + '/questions',
+      url: '/exams/' + this.examId + '/questions',
       footer: 'Total',
       loading: true
     });
@@ -38,7 +38,7 @@ export class OverviewComponent implements OnInit {
       title: 'Students',
       name: 'students',
       icon: 'supervisor_account',
-      url: '/exam/' + this.examId + '/students',
+      url: '/exams/' + this.examId + '/students',
       footer: 'Total',
       loading: false
     });

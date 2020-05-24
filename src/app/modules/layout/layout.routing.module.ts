@@ -27,6 +27,13 @@ const routes: Routes = [
           exam: ExamResolve
         }
       },
+      {
+        path: 'exams/:id/questions',
+        loadChildren: () => import('../questions/questions.module').then(m => m.QuestionsModule),
+        resolve: {
+          exam: ExamResolve
+        }
+      },
     ]
   }
 ];

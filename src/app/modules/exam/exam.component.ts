@@ -21,7 +21,6 @@ export class ExamComponent implements OnInit {
 
   ngOnInit(): void {
     this.exam = this.route.snapshot.data.exam;
-    console.log(this.exam)
   }
 
 }
