@@ -53,33 +53,25 @@ export class OverviewComponent implements OnInit {
   getQuestions(): void {
     this.examQuestionsService.total(this.examId).subscribe(
       (data) => {
-        this.updateQuestions(data);
+        const tile = this.items.find(m => m.name === 'questions');
+        tile.value = data;
+        tile.loading = false;
       },
       (error) => {
       }
     );
-  }
-
-  updateQuestions(data) {
-    const tile = this.items.find(m => m.name === 'questions');
-    tile.value = data.total;
-    tile.loading = false;
   }
 
   getStudents() {
     this.examStudentsService.total(this.examId).subscribe(
       (data) => {
-        this.updateStudents(data);
+        const tile = this.items.find(m => m.name === 'students');
+        tile.value = data;
+        tile.loading = false;
       },
       (error) => {
       }
     );
-  }
-
-  updateStudents(data) {
-    const tile = this.items.find(m => m.name === 'students');
-    tile.value = data.total;
-    tile.loading = false;
   }
 }
 

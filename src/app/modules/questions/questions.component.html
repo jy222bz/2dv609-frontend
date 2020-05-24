@@ -2,7 +2,7 @@
   <div class="mat-table-container">
     <div class="app-toolbar">
       <div>
-        <span class="title">{{exam.title}}</span>
+        <span class="title"><a [routerLink]="'/exams/' + exam.id">{{exam.title}}</a></span>
         <span class="mat-toolbar-spacer"></span>
         <button (click)="search = true" mat-icon-button matTooltip="Search">
           <mat-icon>search</mat-icon>
