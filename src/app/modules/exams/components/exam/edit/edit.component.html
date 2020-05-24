@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add</h2>
+<h2 mat-dialog-title>Edit</h2>
 <app-alert *ngIf="error != null" [value]="error"></app-alert>
 <mat-dialog-content>
   <form [formGroup]="form">
@@ -60,6 +60,6 @@
 <mat-dialog-actions class="mat-dialog-actions-end">
   <button (click)="close()" class="mat-raised-button" type="button">Close</button>
   <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
-    <span>Add</span>
+    <span>Save</span>
   </button>
 </mat-dialog-actions>

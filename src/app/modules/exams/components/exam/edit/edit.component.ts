@@ -21,8 +21,8 @@ export class ExamEditComponent extends DialogComponent implements OnInit {
     this.form = this.fb.group({
       title: [data.title, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       courseCode: [data.courseCode, [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
-      startAt: [data.startAt, [Validators.required]],
-      endAt: [data.endAt, [Validators.required]],
+      startAt: [(new Date(data.startAt)).toISOString(), [Validators.required]],
+      endAt: [(new Date(data.endAt)).toISOString(), [Validators.required]],
       credits: [data.credits, [Validators.required]],
       note: [data.note, []]
     });
