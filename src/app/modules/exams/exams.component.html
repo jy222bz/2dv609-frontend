@@ -38,7 +38,7 @@
 
       <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef> Title</mat-header-cell>
-        <mat-cell *matCellDef="let element"><strong><a [routerLink]="element.id">{{element.title}}</a></strong>
+        <mat-cell *matCellDef="let element"><strong><a [routerLink]="'/exams/' + element.id">{{element.title}}</a></strong>
         </mat-cell>
       </ng-container>
 
