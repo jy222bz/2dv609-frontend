@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>Add</h2>
+<app-alert *ngIf="error != null" [value]="error"></app-alert>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="title" matInput placeholder="Title">
+        </label>
+        <mat-error *ngIf="form.controls.title.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="courseCode" matInput placeholder="Course Code">
+        </label>
+        <mat-error *ngIf="form.controls.courseCode.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="credits" matInput placeholder="Credits">
+        </label>
+        <mat-error *ngIf="form.controls.credits.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <input matInput [ngxMatDatetimePicker]="startAt" placeholder="Start Date" formControlName="startAt">
+        <mat-datepicker-toggle matSuffix [for]="startAt"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #startAt [showSpinners]="true" [showSeconds]="true"
+          [stepHour]="1" [stepMinute]="1" [stepSecond]="1" [touchUi]="false">
+        </ngx-mat-datetime-picker>
+        <mat-error *ngIf="form.controls.courseCode.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <input matInput [ngxMatDatetimePicker]="endAt" placeholder="End Date" formControlName="endAt">
+        <mat-datepicker-toggle matSuffix [for]="endAt"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #endAt [showSpinners]="true" [showSeconds]="true"
+          [stepHour]="1" [stepMinute]="1" [stepSecond]="1" [touchUi]="false">
+        </ngx-mat-datetime-picker>
+        <mat-error *ngIf="form.controls.courseCode.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row">
+      <mat-form-field fxFlex="1 1 100%">
+        <label>
+          <input autocomplete="off" formControlName="note" matInput placeholder="Note">
+        </label>
+        <mat-error *ngIf="form.controls.note.hasError('required')">required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+  <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+  <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
+    <span>Add</span>
+  </button>
+</mat-dialog-actions>

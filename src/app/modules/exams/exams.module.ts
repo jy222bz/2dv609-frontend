@@ -19,7 +19,10 @@ import { MatInputModule } from '@angular/material/input';
 import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule } from '@angular-material-components/datetime-picker';
 import { ExamsService } from 'src/app/shared/services/exams/exams.service';
+import { AddComponent } from './components/add/add.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   imports: [
@@ -42,9 +45,13 @@ import { ExamsService } from 'src/app/shared/services/exams/exams.service';
     MatSelectModule,
     MatTooltipModule,
     MatDividerModule,
+    MatDatepickerModule,
+    NgxMatNativeDateModule,
+    NgxMatDatetimePickerModule,
   ],
   declarations: [
     ExamsComponent,
+    AddComponent,
   ],
   providers: [
     ExamsService,
