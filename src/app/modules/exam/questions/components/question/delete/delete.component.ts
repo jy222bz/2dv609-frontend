@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../../../../../shared/components/dialog/dialog.component';
 import { ExamQuestionService } from 'src/app/shared/services/exams/exam-question.service';
 
 @Component({

@@ -2,7 +2,7 @@
   <div class="mat-table-container">
     <div class="app-toolbar">
       <div>
-        <span class="title">{{exam.title}}</span>
+        <span class="title"><a [routerLink]="'/exams/' + exam.id">{{exam.title}}</a></span>
         <span class="mat-toolbar-spacer"></span>
         <button (click)="search = true" mat-icon-button matTooltip="Search">
           <mat-icon>search</mat-icon>
@@ -38,7 +38,7 @@
 
       <ng-container matColumnDef="text">
         <mat-header-cell *matHeaderCellDef> Question</mat-header-cell>
-        <mat-cell *matCellDef="let element"><strong>{{element.text}}</strong>
+        <mat-cell *matCellDef="let element"><strong><a [routerLink]="'/exams/' + exam.id + '/questions/' + element.id">{{element.text}}</a></strong>
         </mat-cell>
       </ng-container>
 

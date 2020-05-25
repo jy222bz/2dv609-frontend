@@ -28,7 +28,7 @@ export class ExamQuestionsService {
   }
 
   total(examId: number, args?: any) {
-    return this.http.get<any>(`${this.path}/${examId}/${this.subPath}/total`, {
+    return this.http.get<any>(`${this.path}/${examId}/${this.subPath}/count`, {
       params: new HttpParams({ fromObject: args })
     });
   }

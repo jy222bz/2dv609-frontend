@@ -29,10 +29,7 @@ export class AddComponent extends DialogComponent implements OnInit {
       roleId: ['', [Validators.required]],
       note: ['', []]
     });
-    this.roles$ = this.rolesService.get({
-      pageIndex: 0,
-      pageSize: 50
-    });
+    this.roles$ = this.rolesService.get();
   }
 
   ngOnInit(): void {
