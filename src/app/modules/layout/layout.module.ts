@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarComponent } from 'src/app/modules/layout/components/toolbar/toolbar.component';
 import { ExamResolve } from './resolver/exam.resolve';
+import { QuestionResolve } from './resolver/question.resolve';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { ExamResolve } from './resolver/exam.resolve';
   ],
   providers: [
     ExamResolve,
+    QuestionResolve,
   ]
 })
 export class LayoutModule {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { ExamResolve } from './resolver/exam.resolve';
+import { QuestionResolve } from './resolver/question.resolve';
 
 const routes: Routes = [
   {
@@ -21,17 +22,24 @@ const routes: Routes = [
         loadChildren: () => import('../exams/exams.module').then(m => m.ExamsModule)
       },
       {
-        path: 'exams/:id',
+        path: 'exams/:examId',
         loadChildren: () => import('../exam/exam.module').then(m => m.ExamModule),
         resolve: {
           exam: ExamResolve
         }
       },
       {
-        path: 'exams/:id/questions',
+        path: 'exams/:examId/questions',
         loadChildren: () => import('../questions/questions.module').then(m => m.QuestionsModule),
         resolve: {
           exam: ExamResolve
+        }
+      },
+      {
+        path: 'exams/:examId/questions/:questionId',
+        loadChildren: () => import('../choices/choices.module').then(m => m.ChoicesModule),
+        resolve: {
+          question: QuestionResolve
         }
       },
     ]

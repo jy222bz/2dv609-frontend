@@ -17,7 +17,7 @@ export class OverviewComponent implements OnInit {
     private examQuestionsService: ExamQuestionsService,
     private examStudentsService: ExamStudentsService,
   ) {
-    this.examId = this.activatedRoute.snapshot.params.id;
+    this.examId = this.activatedRoute.snapshot.params.examId;
     this.addQuestions();
     this.addStudents();
   }
