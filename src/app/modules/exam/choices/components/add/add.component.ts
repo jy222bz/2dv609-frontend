@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
 import { ExamQuestionChoicesService } from 'src/app/shared/services/exams/exam-question-choices.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class AddComponent extends DialogComponent implements OnInit {
 
     this.form = this.fb.group({
       text: ['', [Validators.required, Validators.minLength(1)]],
-      correct: [true, [Validators.required]], 
+      correct: [true, [Validators.required]],
       note: ['', []]
     });
   }

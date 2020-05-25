@@ -23,21 +23,21 @@ const routes: Routes = [
       },
       {
         path: 'exams/:examId',
-        loadChildren: () => import('../exam/exam.module').then(m => m.ExamModule),
+        loadChildren: () => import('../exam/exam/exam.module').then(m => m.ExamModule),
         resolve: {
           exam: ExamResolve
         }
       },
       {
         path: 'exams/:examId/questions',
-        loadChildren: () => import('../questions/questions.module').then(m => m.QuestionsModule),
+        loadChildren: () => import('../exam/questions/questions.module').then(m => m.QuestionsModule),
         resolve: {
           exam: ExamResolve
         }
       },
       {
         path: 'exams/:examId/questions/:questionId',
-        loadChildren: () => import('../choices/choices.module').then(m => m.ChoicesModule),
+        loadChildren: () => import('../exam/choices/choices.module').then(m => m.ChoicesModule),
         resolve: {
           question: QuestionResolve
         }

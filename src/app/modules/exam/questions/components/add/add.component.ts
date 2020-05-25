@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
 import { ExamQuestionsService } from 'src/app/shared/services/exams/exam-questions.service';
 import { QuestionTypesService } from 'src/app/shared/services/question-types/question-types.service';
 
