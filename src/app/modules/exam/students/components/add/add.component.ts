@@ -2,27 +2,27 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DialogComponent } from '../../../../../shared/components/dialog/dialog.component';
-import { ExamQuestionChoicesService } from 'src/app/shared/services/exams/exam-question-choices.service';
+import { ExamStudentsService } from 'src/app/shared/services/exams/exam-students.service';
 
 @Component({
-  selector: 'app-choices-add',
+  selector: 'app-students-add',
   templateUrl: './add.component.html',
 })
 export class AddComponent extends DialogComponent implements OnInit {
-  roles$ = null;
+  students$ = null;
 
   constructor(
-    private examQuestionChoicesService: ExamQuestionChoicesService,
+    private examStudentsService: ExamStudentsService,
     private fb: FormBuilder,
     private dialog: MatDialogRef<AddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     super(dialog);
 
     this.form = this.fb.group({
-      text: ['', [Validators.required, Validators.minLength(1)]],
-      correct: [true, [Validators.required]],
+      userId: [0, [Validators.required]],
       note: ['', []]
     });
+    this.students$ = this.examStudentsService.available(this.data.id);
   }
 
   ngOnInit(): void {
@@ -30,7 +30,7 @@ export class AddComponent extends DialogComponent implements OnInit {
   }
 
   submit() {
-    this.examQuestionChoicesService.create(this.data.examId, this.data.id, this.form.value)
+    this.examStudentsService.create(this.data.id, this.form.value)
       .subscribe(
         (data) => {
           this.working = false;

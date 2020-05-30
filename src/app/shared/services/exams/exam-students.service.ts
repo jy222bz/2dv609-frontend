@@ -17,6 +17,12 @@ export class ExamStudentsService {
     });
   }
 
+  available(examId: number, args?: any) {
+    return this.http.get<any>(`${this.path}/${examId}/${this.subPath}/available`, {
+      params: new HttpParams({ fromObject: args })
+    });
+  }
+
   create(examId: number, body: any) {
     return this.http.post(`${this.path}/${examId}/${this.subPath}`, body);
   }

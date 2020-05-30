@@ -36,15 +36,15 @@
         <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="text">
-        <mat-header-cell *matHeaderCellDef> Question</mat-header-cell>
-        <mat-cell *matCellDef="let element"><strong><a [routerLink]="'/exams/' + exam.id + '/questions/' + element.id + '/choices'">{{element.text}}</a></strong>
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email</mat-header-cell>
+        <mat-cell *matCellDef="let element"><strong>{{element.email}}</strong>
         </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.typeName}}
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.firstName + ' ' + element.lastName}}
         </mat-cell>
       </ng-container>
 
@@ -61,16 +61,12 @@
       <ng-container matColumnDef="edit">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element" class="mat-column-end">
-          <button [matMenuTriggerFor]="questionMenu" mat-icon-button>
+          <button [matMenuTriggerFor]="studentMenu" mat-icon-button>
             <mat-icon>more_vert</mat-icon>
           </button>
-          <mat-menu #questionMenu="matMenu">
-            <button (click)="openQuestionEditComponent(element)" mat-menu-item>
-              <mat-icon>edit</mat-icon>
-              <span>Edit</span>
-            </button>
+          <mat-menu #studentMenu="matMenu">
             <mat-divider></mat-divider>
-            <button (click)="openQuestionDeleteComponent(element)" mat-menu-item>
+            <button (click)="openStudentDeleteComponent(element)" mat-menu-item>
               <mat-icon>delete</mat-icon>
               <span>Delete</span>
             </button>
