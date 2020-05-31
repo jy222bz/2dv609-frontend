@@ -9,8 +9,6 @@ import { ExamsService } from 'src/app/shared/services/exams/exams.service';
   templateUrl: './add.component.html',
 })
 export class AddComponent extends DialogComponent implements OnInit {
-  roles$ = null;
-
   constructor(
     private examsService: ExamsService,
     private fb: FormBuilder,
@@ -29,10 +27,6 @@ export class AddComponent extends DialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-  }
-
-  getRoles() {
 
   }
 

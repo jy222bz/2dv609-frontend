@@ -29,7 +29,7 @@ export class OverviewComponent implements OnInit {
       icon: 'link',
       url: '/exams/' + this.examId + '/questions',
       footer: 'Total',
-      loading: true
+      loading: false
     });
   }
 
@@ -55,7 +55,6 @@ export class OverviewComponent implements OnInit {
       (data) => {
         const tile = this.items.find(m => m.name === 'questions');
         tile.value = data;
-        tile.loading = false;
       },
       (error) => {
       }
@@ -67,7 +66,6 @@ export class OverviewComponent implements OnInit {
       (data) => {
         const tile = this.items.find(m => m.name === 'students');
         tile.value = data;
-        tile.loading = false;
       },
       (error) => {
       }

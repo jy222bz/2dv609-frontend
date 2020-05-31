@@ -22,8 +22,8 @@ export class LoginComponent {
     private router: Router,
   ) {
     this.form = this.fb.group({
-      email: ['admin@gmail.com', [Validators.required, Validators.email, Validators.minLength(3)]],
-      password: ['admin', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      email: ['', [Validators.required, Validators.email, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
     });
   }
 
@@ -40,7 +40,7 @@ export class LoginComponent {
         this.router.navigate(['/dashboard']);
       },
       (error) => {
-        this.error = error;
+        this.error = error.error.description;
       }
     )
   }

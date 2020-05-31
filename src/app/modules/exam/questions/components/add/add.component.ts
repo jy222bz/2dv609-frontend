@@ -33,10 +33,6 @@ export class AddComponent extends DialogComponent implements OnInit {
 
   }
 
-  getRoles() {
-
-  }
-
   submit() {
     this.examQuestionsService.create(this.data.id, this.form.value)
       .subscribe(

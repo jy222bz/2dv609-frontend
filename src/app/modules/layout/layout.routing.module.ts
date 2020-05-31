@@ -36,10 +36,17 @@ const routes: Routes = [
         }
       },
       {
-        path: 'exams/:examId/questions/:questionId',
+        path: 'exams/:examId/questions/:questionId/choices',
         loadChildren: () => import('../exam/choices/choices.module').then(m => m.ChoicesModule),
         resolve: {
           question: QuestionResolve
+        }
+      },
+      {
+        path: 'exams/:examId/students',
+        loadChildren: () => import('../exam/students/students.module').then(m => m.StudentsModule),
+        resolve: {
+          exam: ExamResolve
         }
       },
     ]
