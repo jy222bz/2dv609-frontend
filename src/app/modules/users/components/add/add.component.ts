@@ -36,10 +36,6 @@ export class AddComponent extends DialogComponent implements OnInit {
 
   }
 
-  getRoles() {
-
-  }
-
   submit() {
     this.usersService.create(this.form.value)
       .subscribe(

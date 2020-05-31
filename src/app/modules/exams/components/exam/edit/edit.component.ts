@@ -10,8 +10,6 @@ import { ExamService } from 'src/app/shared/services/exams/exam.service';
   providers: [ExamService]
 })
 export class ExamEditComponent extends DialogComponent implements OnInit {
-  roles$ = null;
-
   constructor(
     private examService: ExamService,
     private fb: FormBuilder,
@@ -29,10 +27,6 @@ export class ExamEditComponent extends DialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-  }
-
-  getRoles() {
 
   }
 
